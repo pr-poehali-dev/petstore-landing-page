@@ -96,7 +96,79 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center gap-12">
+              <div className="w-40 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                <span className="text-primary font-bold text-xl">🐾 ЛОГО</span>
+              </div>
+              
+              <nav className="hidden lg:flex items-center gap-8">
+                <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
+                  О компании
+                </a>
+                <a href="#news" className="text-sm font-medium hover:text-primary transition-colors">
+                  Новости
+                </a>
+                
+                <div className="relative group">
+                  <button className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+                    Франшизы
+                    <Icon name="ChevronDown" size={16} />
+                  </button>
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-background border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <a href="#franchise" className="block px-4 py-3 text-sm hover:bg-muted transition-colors">
+                      Франшиза
+                    </a>
+                    <a href="#grooming" className="block px-4 py-3 text-sm hover:bg-muted transition-colors">
+                      Франшиза груминг-салона
+                    </a>
+                    <a href="#turnkey" className="block px-4 py-3 text-sm hover:bg-muted transition-colors">
+                      Бизнес под ключ
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="relative group">
+                  <button className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+                    Для бизнеса
+                    <Icon name="ChevronDown" size={16} />
+                  </button>
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-background border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <a href="#development" className="block px-4 py-3 text-sm hover:bg-muted transition-colors">
+                      Программа развития зоомагазинов
+                    </a>
+                    <a href="#mentorship" className="block px-4 py-3 text-sm hover:bg-muted transition-colors">
+                      Наставничество
+                    </a>
+                  </div>
+                </div>
+                
+                <a href="#academy" className="text-sm font-medium hover:text-primary transition-colors">
+                  Академия
+                </a>
+              </nav>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              <a 
+                href="tel:89231175474" 
+                className="hidden md:flex items-center gap-2 text-sm font-semibold hover:text-primary transition-colors"
+              >
+                <Icon name="Phone" size={18} />
+                <span>8 923 117 5474</span>
+              </a>
+              
+              <button className="lg:hidden p-2 hover:bg-muted rounded-lg transition-colors">
+                <Icon name="Menu" size={24} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5 pt-20">
         <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/projects/300fa320-e5d6-4589-b3cd-e784994992ed/files/d2c1417c-4b4f-4769-aa3b-d13a421adb2a.jpg')] bg-cover bg-center opacity-10" />
         
         <div className="container relative z-10 px-4 py-20">
