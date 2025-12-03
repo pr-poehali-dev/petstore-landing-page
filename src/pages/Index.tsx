@@ -11,6 +11,7 @@ const Index = () => {
     phone: "",
     email: "",
     message: "",
+    city: "",
   });
 
   const benefits = [
@@ -91,7 +92,7 @@ const Index = () => {
     e.preventDefault();
     console.log("Заявка отправлена:", formData);
     alert("Спасибо! Мы свяжемся с вами в ближайшее время.");
-    setFormData({ name: "", phone: "", email: "", message: "" });
+    setFormData({ name: "", phone: "", email: "", message: "", city: "" });
   };
 
   return (
@@ -168,49 +169,93 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5 pt-20">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5 pt-20">
         <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/projects/300fa320-e5d6-4589-b3cd-e784994992ed/files/d2c1417c-4b4f-4769-aa3b-d13a421adb2a.jpg')] bg-cover bg-center opacity-10" />
         
-        <div className="container relative z-10 px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="inline-block mb-6 px-6 py-2 bg-primary/10 rounded-full">
-              <span className="text-primary font-semibold">🐾 Франшиза №1 в России</span>
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight uppercase">
-              Открой <span className="text-primary">зоомагазин</span> по франшизе
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto font-light">
-              Проверенная бизнес-модель с окупаемостью 12-18 месяцев. 
-              Полное сопровождение от запуска до масштабирования.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="text-lg px-8 py-6 hover:scale-105 transition-transform">
-                Получить презентацию
-                <Icon name="ArrowRight" size={20} className="ml-2" />
-              </Button>
+        <div className="container relative z-10 px-4 py-16 lg:py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            <div className="animate-fade-in">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight uppercase">
+                Открой <span className="text-primary">зоомагазин</span> по франшизе
+              </h1>
               
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 hover:scale-105 transition-transform">
-                <Icon name="Play" size={20} className="mr-2" />
-                Смотреть видео
-              </Button>
+              <div className="mb-8">
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                  ПРИБЫЛЬ 250 000 руб. в мес.
+                </div>
+                <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
+                  Актуальный бизнес по продаже товаров для животных с рентабельностью от 40%. Проверено на 190+ магазинах!
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                <div className="bg-background/60 backdrop-blur p-4 rounded-lg border">
+                  <div className="text-2xl font-bold text-primary mb-1">2.4 млрд</div>
+                  <div className="text-sm text-muted-foreground">товарооборот за 2024 г.</div>
+                </div>
+                <div className="bg-background/60 backdrop-blur p-4 rounded-lg border">
+                  <div className="text-2xl font-bold text-primary mb-1">ТОП-10</div>
+                  <div className="text-sm text-muted-foreground">товаров высокого спроса</div>
+                </div>
+                <div className="bg-background/60 backdrop-blur p-4 rounded-lg border">
+                  <div className="text-2xl font-bold text-primary mb-1">213</div>
+                  <div className="text-sm text-muted-foreground">магазинов в сети в 38 городах</div>
+                </div>
+              </div>
             </div>
             
-            <div className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">200+</div>
-                <div className="text-sm text-muted-foreground">магазинов</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">15</div>
-                <div className="text-sm text-muted-foreground">лет на рынке</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">98%</div>
-                <div className="text-sm text-muted-foreground">успешных кейсов</div>
-              </div>
+            <div className="bg-background/90 backdrop-blur-lg p-8 rounded-2xl border shadow-2xl animate-fade-in">
+              <h3 className="text-2xl font-bold mb-2">Получить финансовый план</h3>
+              <p className="text-sm text-muted-foreground mb-6">
+                Оставьте заявку, чтобы узнать подробнее как выйти на прибыль от 250 000 руб. с собственным зоомагазином
+              </p>
+              
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Имя"
+                    required
+                    className="w-full px-4 py-3 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                
+                <div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Телефон"
+                    required
+                    className="w-full px-4 py-3 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                
+                <div>
+                  <input
+                    type="text"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    placeholder="Город"
+                    required
+                    className="w-full px-4 py-3 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                
+                <Button type="submit" size="lg" className="w-full text-lg py-6">
+                  Получить финансовый план
+                  <Icon name="ArrowRight" size={20} className="ml-2" />
+                </Button>
+                
+                <p className="text-xs text-muted-foreground text-center">
+                  Финансовая модель отправляется только менеджером по продажам после звонка
+                </p>
+              </form>
             </div>
           </div>
         </div>
